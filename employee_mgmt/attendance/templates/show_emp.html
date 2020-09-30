@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{{emp.first_name}} {{emp.last_name}}</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+        />
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a
+                    class="navbar-brand"
+                    href="/which_dash/{{logged_in_employee.id}}"
+                    >Fake Corp.</a
+                >
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div
+                    class="collapse navbar-collapse"
+                    id="navbarSupportedContent"
+                >
+                    <ul class="navbar-nav mr-auto">
+                        <li>
+                            <span class="navbar-text">
+                                <em>Doing Fake Business Right</em>
+                            </span>
+                        </li>
+                    </ul>
+
+                    <a
+                        href="/logout"
+                        class="btn btn-outline-primary my-2 my-sm-0"
+                        type="button"
+                    >
+                        Log Out
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col my-1">
+                    <h1 class="text-center">
+                        <em>{{emp.first_name}} {{emp.last_name}}</em>
+                    </h1>
+                </div>
+            </div>
+
+            <div class="row my-5">
+                <div class="col">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="6">
+                                    <h3>Employee Info:</h3>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Email: </strong>{{emp.email}}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Employee ID: </strong>{{emp.id}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="6">
+                                    <h3>Employee Attendance:</h3>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for attendance in emp_attendance %}
+                            <tr>
+                                <td>
+                                    <strong>Punch In: </strong
+                                    >{{attendance.employee.updated_at}}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

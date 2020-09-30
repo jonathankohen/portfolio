@@ -1,0 +1,10 @@
+@import 'scss/variables';
+
+@import '../node_modules/bootstrap/scss/bootstrap';
+// @import '../node_modules/bootstrap/scss/variables'; etc...
+
+#landing_btn {
+    &:hover {
+        background-image: linear-gradient(90deg, $primary, $primary_light);
+    }
+}
